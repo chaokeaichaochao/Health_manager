@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.CheckItemDao">
+    <!--新增检查项目-->
+    <insert id="add" parameterType="checkItem">
+        insert into t_checkitem values(null,#{code},#{name},#{sex},#{age},#{price},#{type},#{attention},#{remark})
+    </insert>
+
+
+    <!--分页查询-->
+    <sql id="lq">
+        <where>
+            <if test="queryString!=null and queryString.length > 0">
+                code like '%${queryString}%' or name like '%${queryString}%'
+            </if>
+        </where>
+    </sql>
+
+
+
+    <select id="findPage" parameterType="com.itheima.health.pojo.QueryPageBean" resultType="CheckItem">
+        select*from t_checkitem
+        <include refid="lq"/>
+
+   </select>
+    <!--根据检查项checkitemid去查 t_checkgroup_checkitem 是否有记录,检查项就是检查组的细划分-->
+    <select id="findCountById" parameterType="int" resultType="long">
+        select count(*) from t_checkgroup_checkitem where checkitem_id = #{checkitemid}
+    </select>
+
+
+    <!--删除检查项-->
+    <delete id="delete" parameterType="int" >
+        delete from t_checkitem where id = #{checkitemid}
+    </delete>
+    <!--编辑检查项-->
+    <update id="update" parameterType="checkItem" >
+        update  t_checkitem   set code=#{code},name=#{name},sex=#{sex},age=#{age},price=#{price},type=#{type},attention=#{attention},remark=#{remark} where id = #{id}
+    </update>
+
+    <!--查询所有检查项信息-->
+    <select id="findAll" resultType="checkItem">
+
+        select * from t_checkitem
+    </select>
+</mapper>
