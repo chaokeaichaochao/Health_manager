@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.SetmealDao">
+
+    <!--
+        往t_checkgroup 添加检查组的基本信息
+            id: 与方法名一样
+            parameterType: 参数类型
+            keyProperty:  返回的主键数据，使用CheckGroup这个类里面的什么属性来装
+            useGeneratedKeys ：  是否使用数据库自己创建出来的id主键。 是否由数据库生成主键，还是由mybatis自己搞出来主键
+
+     -->
+<insert id="addSetmeal" parameterType="setmeal" useGeneratedKeys="true" keyProperty="id">
+
+    insert into t_setmeal values (null ,#{name},#{code},#{helpCode},#{sex},#{age},#{price},#{remark},#{attention},#{img})
+</insert>
+<!--中间表-->
+<insert id="addSetmeal_checkgrouop" parameterType="int">
+    insert into t_setmeal_checkgroup values (#{setmeal_id},#{checkgroupId})
+</insert>
+
+
+    <select id="getImgs" resultType="String">
+        select img from t_setmeal
+    </select>
+
+
+</mapper>

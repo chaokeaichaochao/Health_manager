@@ -1,0 +1,6 @@
+com\itheima\utils\QiNiuUtils.class
+com\itheima\exe\Myjob.class
+com\itheima\constant\MessageConstant.class
+com\itheima\utils\RedisConstant.class
+com\itheima\exe\JobApplication.class
+com\itheima\utils\POIUtils.class

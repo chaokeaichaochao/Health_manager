@@ -8,8 +8,24 @@ import org.junit.Test;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * 问题1,每次读取得设置单元格类型cell
+ *                    加:        cell.setCellType(XSSFCell.CELL_TYPE_STRING);
+ *                   读不了数字:  String value = cell.getStringCellValue();
+ *
+ * 问题2,写出xlsx文件损坏
+ *
+ *
+ * 问题3,工具类读不了date类型
+ *
+ */
+
+
+
+
+
 public class TestPoi {
-    //读取第一种
+    //读取第一种方式
     @Test
     public void test01() throws IOException {
 
@@ -33,7 +49,7 @@ public class TestPoi {
 
     }
 
-    //读取第二种
+    //读取第二种方式
     @Test
     public void testRead02() throws IOException {
 

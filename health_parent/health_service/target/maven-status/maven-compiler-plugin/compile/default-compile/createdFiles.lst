@@ -1,0 +1,8 @@
+com\itheima\service\serviceImpl\CheckGroupServiceImpl.class
+com\itheima\service\serviceImpl\CheckItemServiceImpl.class
+com\itheima\service\OrderSettingService.class
+com\itheima\service\serviceImpl\OrderSettingServiceImpl.class
+com\itheima\service\serviceImpl\SetmealServiceImpl.class
+com\itheima\service\CheckGroupService.class
+com\itheima\service\CheckItemService.class
+com\itheima\service\SetmealService.class
